@@ -1,4 +1,0 @@
-repository "YouControlEnviromentNotPlayer@ImDanee@cloud"
-  path "/"
-    br "/main"
-    co "/main"
