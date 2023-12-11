@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 173dee6a439b32a40998042292883382, type: 2}
     - target: {fileID: 919132149155446097, guid: 1c6fb815d2172194792f5127a5f0f4f0, type: 3}
       propertyPath: m_Name
-      value: strom
+      value: bigTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c6fb815d2172194792f5127a5f0f4f0, type: 3}
+      propertyPath: m_TagString
+      value: tree
       objectReference: {fileID: 0}
     - target: {fileID: 1541998606474349963, guid: 1c6fb815d2172194792f5127a5f0f4f0, type: 3}
       propertyPath: m_Materials.Array.data[0]
