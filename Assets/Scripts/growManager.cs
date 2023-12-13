@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -27,29 +28,30 @@ public class growManager : MonoBehaviour
 
     private IEnumerator grow()
     {
+        Vector3 position = new Vector3();
         if (!isPositionOccupied(spawn.transform.position))
         {
-            GameObject smallTree = Instantiate(small, spawn.transform.position, spawn.transform.rotation);
-            yield return new WaitForSeconds(5);
-            Destroy(smallTree);
-            GameObject mediumTree = Instantiate(medium, spawn.transform.position, spawn.transform.rotation);
-            yield return new WaitForSeconds(5);
-            Destroy(mediumTree);
-            GameObject bigTree = Instantiate(big, spawn.transform.position, spawn.transform.rotation);
+            position = spawn.transform.position;
         }
         else
         {
             Vector3 newPosition = findFreePosition(spawn.transform.position, 1.0f, 5);
-            
             if (newPosition != Vector3.zero)
             {
-                GameObject smallTree = Instantiate(small, newPosition, Quaternion.identity);
-                yield return new WaitForSeconds(5);
-                Destroy(smallTree);
-                GameObject mediumTree = Instantiate(medium, newPosition, Quaternion.identity);
-                yield return new WaitForSeconds(5);
+                position = newPosition;
+            }
+        }
+        GameObject smallTree = Instantiate(small, position, Quaternion.identity);
+        yield return new WaitForSeconds(5);
+        if (smallTree)
+        {
+            Destroy(smallTree);
+            GameObject mediumTree = Instantiate(medium, position, Quaternion.identity);
+            yield return new WaitForSeconds(5);
+            if (mediumTree)
+            {
                 Destroy(mediumTree);
-                GameObject bigTree = Instantiate(big, newPosition, Quaternion.identity);
+                GameObject bigTree = Instantiate(big, position, Quaternion.identity);
             }
         }
     }
