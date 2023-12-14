@@ -6,6 +6,7 @@ using UnityEngine;
 public class weatherManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem rain;
+    [SerializeField] private ParticleSystem snow;
 
 // Start is called before the first frame update
 
@@ -14,6 +15,11 @@ public class weatherManager : MonoBehaviour
         if (rain.isPlaying)
         {
             rain.Stop();
+        }
+
+        if (snow.isPlaying)
+        {
+            snow.Stop();
         }
     }
 
@@ -28,6 +34,18 @@ public void startStopRain()
             rain.Play();
         }
     }
+
+public void startStopSnow()
+{
+    if (snow.isPlaying)
+    {
+        snow.Stop();
+    }
+    else
+    {
+        snow.Play();
+    }
+}
 
     // Update is called once per frame
     void Update()
