@@ -1,3 +1,4 @@
 # YouControlEnviromentNotPlayer
 my first "game" in unity
-- it will be on itch.io 
+## Download [BETA SOON!]
+- [itch.io](https://daneeskripter.itch.io/you-control-the-environment-not-player)
