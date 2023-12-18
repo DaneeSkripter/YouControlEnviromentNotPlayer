@@ -16,37 +16,37 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
-            speed = sprintSpeed;
-        }
-        else
-        {
-            speed = walkSpeed;
-        }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = sprintSpeed;
+            }
+            else
+            {
+                speed = walkSpeed;
+            }
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded())
-        {
-            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            if (Input.GetKey(KeyCode.Space) && isGrounded())
+            {
+                rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            }
         }
     }
 
     private void FixedUpdate()
     {
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            var direction = Vector3.zero;
 
-        var direction = Vector3.zero;
+            float x = Input.GetAxisRaw("Horizontal");
+            float z = Input.GetAxisRaw("Vertical");
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+            direction = transform.right * x + transform.forward * z;
 
-        direction = transform.right * x + transform.forward * z;
-
-        rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, direction.z * speed);
+            rb.velocity = new Vector3(direction.x * speed, rb.velocity.y, direction.z * speed);
+        }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(groundCheck.transform.position, 0.4f);
-    }
 }
