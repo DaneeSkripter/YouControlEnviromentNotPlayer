@@ -9,7 +9,7 @@ public class hideMenu : MonoBehaviour
     // Start is called before the first frame update
     public void checkIfMenuIsHidden()
     {
-        if (menu.active)
+        if (menu.activeInHierarchy)
         {
             HideMenu();
         }
