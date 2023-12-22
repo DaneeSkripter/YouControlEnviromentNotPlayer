@@ -35,7 +35,7 @@ public class growManager : MonoBehaviour
         }
         else
         {
-            Vector3 newPosition = findFreePosition(spawn.transform.position, 1.0f, 5);
+            Vector3 newPosition = findFreePosition(spawn.transform.position, 1.2f, 5);
             if (newPosition != Vector3.zero)
             {
                 position = newPosition;
@@ -77,7 +77,7 @@ public class growManager : MonoBehaviour
             Random rnd = new Random();
             float randomX = rnd.Next(-60, 80);
             float randomZ = rnd.Next(15, 145);
-            Vector3 newPosition = new Vector3(randomX, -9.6f, randomZ);
+            Vector3 newPosition = new Vector3(randomX, -8.6f, randomZ);
 
 
             if (!isPositionOccupied(newPosition))
