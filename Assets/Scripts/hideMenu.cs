@@ -33,7 +33,7 @@ public class hideMenu : MonoBehaviour
 
     void Update()
     { 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.E))
         {
             ShowMenu();
         }
