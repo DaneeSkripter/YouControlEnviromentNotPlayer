@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class mainMenuManager : MonoBehaviour
 {
@@ -11,17 +12,30 @@ public class mainMenuManager : MonoBehaviour
     [SerializeField] private GameObject optionsmenu;
     [SerializeField] private GameObject playmenu;
     [SerializeField] private TMP_Dropdown resolutionMenu;
-
+    [SerializeField] private TMP_Text fpsText;
+    public float deltaTime;
+    
+    Resolution[] resolutions;
     void Start()
     {
-        string currentResolution = $"{Screen.currentResolution.width}x{Screen.currentResolution.height}";
-        int optionIndex = -1;
-        foreach (TMP_Dropdown.OptionData option in resolutionMenu.options)
+        // ADD SUPPORTED RESOLUTIONS TO DROPDOWN
+        resolutions = Screen.resolutions;
+        resolutionMenu.ClearOptions();
+        List<string> options = new List<string>();
+        for (int i = 0; i < resolutions.Length; i++)
         {
-            optionIndex++;
-            if (option.text == currentResolution)
+            string option = $"{resolutions[i].width}x{resolutions[i].height} {Math.Round(resolutions[i].refreshRateRatio.value)} Hz";
+            options.Add(option);
+        }
+        resolutionMenu.AddOptions(options);
+        // CHOOSE CURRENT RESOLUTION
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = $"{resolutions[i].width}x{resolutions[i].height} {Math.Round(resolutions[i].refreshRateRatio.value)} Hz";
+            string currentResolution = $"{Screen.currentResolution.width}x{Screen.currentResolution.height} {Math.Round(Screen.currentResolution.refreshRateRatio.value)} Hz";
+            if (option == currentResolution)
             {
-                resolutionMenu.value = optionIndex;
+                resolutionMenu.value = i;
             }
         }
     }
@@ -58,11 +72,10 @@ public class mainMenuManager : MonoBehaviour
         Screen.fullScreen = value;
     }
 
-    public void setResolution(int value)
-    {
-       int width = int.Parse(resolutionMenu.options[resolutionMenu.value].text.Split("x")[0]);
-       int height = int.Parse(resolutionMenu.options[resolutionMenu.value].text.Split("x")[1]);
-       Screen.SetResolution(width, height, Screen.fullScreen);
+    public void setResolution(int resolutionIndex)
+    { 
+        Resolution resolution = resolutions[resolutionIndex]; 
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, resolution.refreshRateRatio);
     }
     
     public void executeBackBtn()
@@ -70,5 +83,12 @@ public class mainMenuManager : MonoBehaviour
         playmenu.SetActive(false);
         optionsmenu.SetActive(false);
         mainmenu.SetActive(true);
+    }
+
+    void Update()
+    {
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+        float fps = Mathf.Round(1.0f / deltaTime);
+        fpsText.text = $"FPS: {fps}";
     }
 }
