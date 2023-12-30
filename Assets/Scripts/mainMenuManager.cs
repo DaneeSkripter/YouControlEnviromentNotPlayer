@@ -13,7 +13,6 @@ public class mainMenuManager : MonoBehaviour
     [SerializeField] private GameObject playmenu;
     [SerializeField] private TMP_Dropdown resolutionMenu;
     [SerializeField] private TMP_Text fpsText;
-    public float deltaTime;
     
     Resolution[] resolutions;
     void Start()
@@ -84,11 +83,5 @@ public class mainMenuManager : MonoBehaviour
         optionsmenu.SetActive(false);
         mainmenu.SetActive(true);
     }
-
-    void Update()
-    {
-        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        float fps = Mathf.Round(1.0f / deltaTime);
-        fpsText.text = $"FPS: {fps}";
-    }
+    
 }
