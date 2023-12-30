@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayNightManager : MonoBehaviour
 {
-    public float dayLength = 600f;
+    public float dayLength = 1440f;
     public Light sun;
     public float currentTime = 0f;
     
@@ -36,5 +36,10 @@ public class DayNightManager : MonoBehaviour
     public void setTimeSpeed(int speed)
     {
         timeSpeed = speed;
+    }
+
+    public void setTime(int time)
+    {
+        currentTime = time;
     }
 }
