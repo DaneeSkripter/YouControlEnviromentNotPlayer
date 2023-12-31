@@ -9,29 +9,7 @@ public class menuManager : MonoBehaviour
 
     [SerializeField] private Canvas controlMenu;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     
-    public void showHideControlMenu()
-    {
-        if (controlMenu.gameObject.activeInHierarchy)
-        {
-            controlMenu.gameObject.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            if (pauseMenu.gameObject.activeInHierarchy)
-            {
-                pauseMenu.gameObject.SetActive(false);
-            }
-            controlMenu.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
     
     public void showHidePauseMenu()
     {
@@ -56,7 +34,6 @@ public class menuManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
     
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -66,7 +43,13 @@ public class menuManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-         showHideControlMenu();   
+            if (Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            } else if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }
