@@ -41,17 +41,17 @@ public class growManager : MonoBehaviour
                 position = newPosition;
             }
         }
-        GameObject smallTree = Instantiate(small, position, Quaternion.identity);
+        GameObject smallTree = Instantiate(small, position, small.transform.rotation);
         yield return new WaitForSeconds(5);
         if (smallTree)
         {
             Destroy(smallTree);
-            GameObject mediumTree = Instantiate(medium, position, Quaternion.identity);
+            GameObject mediumTree = Instantiate(medium, position, medium.transform.rotation);
             yield return new WaitForSeconds(5);
             if (mediumTree)
             {
                 Destroy(mediumTree);
-                GameObject bigTree = Instantiate(big, position, Quaternion.identity);
+                GameObject bigTree = Instantiate(big, position, big.transform.rotation);
             }
         }
     }
@@ -61,7 +61,7 @@ public class growManager : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(position, 0.5f);
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("tree"))
+            if (collider.CompareTag("vegetation"))
             {
                 return true;
             }
@@ -87,6 +87,15 @@ public class growManager : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public void deleteVegetation()
+    {
+        GameObject[] vegetation = GameObject.FindGameObjectsWithTag("vegetation");
+        foreach (GameObject obj in vegetation)
+        {
+            Destroy(obj);
+        }
     }
     
 }
