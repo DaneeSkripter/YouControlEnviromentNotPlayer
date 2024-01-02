@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mediumBush
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f2f32d29ee9a442408bf1acfef782035, type: 3}
+      propertyPath: m_TagString
+      value: vegetation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
