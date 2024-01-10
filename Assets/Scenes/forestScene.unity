@@ -269,10 +269,8 @@ GameObject:
   - component: {fileID: 140422421}
   - component: {fileID: 140422420}
   - component: {fileID: 140422419}
-  - component: {fileID: 140422423}
   - component: {fileID: 140422427}
   - component: {fileID: 140422428}
-  - component: {fileID: 140422429}
   m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
@@ -367,23 +365,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &140422423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140422418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a3709c27229194782f64bb900008b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  small: {fileID: 6755309802719566812, guid: db5083cd22af84844b42d2d2028030af, type: 3}
-  medium: {fileID: 3326338801917414846, guid: f6b3ac0eb43032b4ca25a8ee1b01f5ad, type: 3}
-  big: {fileID: 8844069606557766121, guid: def9735a11144174b867d45558be4561, type: 3}
-  spawn: {fileID: 1179251841}
-  triggerBtn: {fileID: 403932591}
 --- !u!114 &140422427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,23 +394,6 @@ MonoBehaviour:
   dayLength: 1440
   sun: {fileID: 557575039}
   currentTime: 720
---- !u!114 &140422429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140422418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53a3709c27229194782f64bb900008b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  small: {fileID: 7315476638179526761, guid: 0a21522839e604c4b83e81999849aa89, type: 3}
-  medium: {fileID: 1159633025707473640, guid: 4f00d611294cf9443aee9cb15d0849a1, type: 3}
-  big: {fileID: 1677370193955529626, guid: df236867be4d6254bb93a7536586209e, type: 3}
-  spawn: {fileID: 1179251841}
-  triggerBtn: {fileID: 761241511}
 --- !u!1 &215960622
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 140422423}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: growManager, Assembly-CSharp
         m_MethodName: deleteVegetation
         m_Mode: 1
@@ -1020,6 +984,7 @@ GameObject:
   - component: {fileID: 403932593}
   - component: {fileID: 403932592}
   - component: {fileID: 403932591}
+  - component: {fileID: 403932594}
   m_Layer: 5
   m_Name: treesBtn
   m_TagString: Untagged
@@ -1089,7 +1054,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 403932592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403932594}
+        m_TargetAssemblyTypeName: placeManager, Assembly-CSharp
+        m_MethodName: enterPlaceMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &403932592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,6 +1105,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403932589}
   m_CullTransparentMesh: 1
+--- !u!114 &403932594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403932589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae5e3384c5bf56439d0135d471ff0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 6755309802719566812, guid: db5083cd22af84844b42d2d2028030af, type: 3}
+  medium: {fileID: 3326338801917414846, guid: f6b3ac0eb43032b4ca25a8ee1b01f5ad, type: 3}
+  big: {fileID: 8844069606557766121, guid: def9735a11144174b867d45558be4561, type: 3}
 --- !u!1 &445771655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2084,7 @@ GameObject:
   - component: {fileID: 761241513}
   - component: {fileID: 761241512}
   - component: {fileID: 761241511}
+  - component: {fileID: 761241514}
   m_Layer: 5
   m_Name: bushBtn
   m_TagString: Untagged
@@ -2161,7 +2154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 761241512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 761241514}
+        m_TargetAssemblyTypeName: placeManager, Assembly-CSharp
+        m_MethodName: enterPlaceMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &761241512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,37 +2205,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761241509}
   m_CullTransparentMesh: 1
---- !u!1 &822235751
-GameObject:
+--- !u!114 &761241514
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 822235752}
-  m_Layer: 0
-  m_Name: bushSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &822235752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822235751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.97, y: -8.6, z: 59.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 761241509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae5e3384c5bf56439d0135d471ff0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 7315476638179526761, guid: 0a21522839e604c4b83e81999849aa89, type: 3}
+  medium: {fileID: 1159633025707473640, guid: 4f00d611294cf9443aee9cb15d0849a1, type: 3}
+  big: {fileID: 1677370193955529626, guid: df236867be4d6254bb93a7536586209e, type: 3}
 --- !u!1 &898535733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,37 +2620,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161762739}
   m_CullTransparentMesh: 1
---- !u!1 &1179251841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1179251842}
-  m_Layer: 0
-  m_Name: spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1179251842
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179251841}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: -8.6, z: 59.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1193540765
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,6 +7727,7 @@ GameObject:
   - component: {fileID: 1296352441}
   - component: {fileID: 1296352440}
   - component: {fileID: 1296352443}
+  - component: {fileID: 1296352444}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7864,6 +7823,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 300
   playerBody: {fileID: 1708481270}
+--- !u!114 &1296352444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296352439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a3709c27229194782f64bb900008b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303836398
 GameObject:
   m_ObjectHideFlags: 0
@@ -14353,8 +14324,6 @@ SceneRoots:
   - {fileID: 140422422}
   - {fileID: 378938037}
   - {fileID: 1635161697}
-  - {fileID: 1179251842}
-  - {fileID: 822235752}
   - {fileID: 760093727}
   - {fileID: 1708481270}
   - {fileID: 558931536}
