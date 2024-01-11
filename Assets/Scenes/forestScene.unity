@@ -476,7 +476,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1296352444}
         m_TargetAssemblyTypeName: growManager, Assembly-CSharp
         m_MethodName: deleteVegetation
         m_Mode: 1
