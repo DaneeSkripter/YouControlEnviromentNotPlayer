@@ -17,17 +17,18 @@ public class growManager : MonoBehaviour
     public IEnumerator grow(Transform objTransform, GameObject small, GameObject medium, GameObject big)
     {
         Vector3 position = new Vector3(objTransform.position.x, objTransform.position.y, objTransform.position.z);
-        GameObject smallTree = Instantiate(small, position, small.transform.rotation);
+        Quaternion rotation = objTransform.rotation;
+        GameObject smallTree = Instantiate(small, position, rotation);
         yield return new WaitForSeconds(5);
         if (smallTree)
         {
             Destroy(smallTree);
-            GameObject mediumTree = Instantiate(medium, position, medium.transform.rotation);
+            GameObject mediumTree = Instantiate(medium, position, rotation);
             yield return new WaitForSeconds(5);
             if (mediumTree)
             {
                 Destroy(mediumTree);
-                GameObject bigTree = Instantiate(big, position, big.transform.rotation);
+                GameObject bigTree = Instantiate(big, position, rotation);
             }
         }
     }

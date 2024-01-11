@@ -35,6 +35,10 @@ public class placeManager : MonoBehaviour
                         currentObject = null;
                     }
                 }
+                else 
+                {
+                    currentObject.transform.Rotate(Vector3.forward, Input.mouseScrollDelta.y * 10f);   
+                }
             }
         }
     }
