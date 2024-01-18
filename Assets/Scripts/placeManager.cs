@@ -24,7 +24,7 @@ public class placeManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, Mathf.Infinity))
             {
-                currentObject.transform.position = new Vector3(hitInfo.point.x, -8.6f, hitInfo.point.z);
+                currentObject.transform.position = new Vector3(hitInfo.point.x, 0f, hitInfo.point.z);
                 if (Input.GetMouseButtonDown(0))
                 {
                     currentObject.tag = "Untagged";
