@@ -10,7 +10,7 @@ public class placeManager : MonoBehaviour
     [SerializeField] private GameObject obj;
     [SerializeField] private GameObject medium;
     [SerializeField] private GameObject big;
-
+    [SerializeField] private Terrain terrain;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,9 @@ public class placeManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, Mathf.Infinity))
             {
-                currentObject.transform.position = new Vector3(hitInfo.point.x, 0f, hitInfo.point.z);
+                float terrainHeight = terrain.SampleHeight(currentObject.transform.position);
+                currentObject.transform.position = new Vector3(hitInfo.point.x, terrainHeight, hitInfo.point.z);
+                
                 if (Input.GetMouseButtonDown(0))
                 {
                     currentObject.tag = "Untagged";
