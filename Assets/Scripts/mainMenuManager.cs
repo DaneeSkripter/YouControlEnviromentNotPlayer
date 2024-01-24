@@ -59,9 +59,9 @@ public class mainMenuManager : MonoBehaviour
     
     // PLAY MENU
     
-    public void executePlaySceneBtn()
+    public void executePlaySceneBtn(string scenename)
     {
-        SceneManager.LoadScene("forestScene");
+        SceneManager.LoadScene(scenename);
     }
     
     // OPTIONS MENU
