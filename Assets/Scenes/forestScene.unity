@@ -1029,6 +1029,7 @@ MonoBehaviour:
   obj: {fileID: 6755309802719566812, guid: db5083cd22af84844b42d2d2028030af, type: 3}
   medium: {fileID: 3326338801917414846, guid: f6b3ac0eb43032b4ca25a8ee1b01f5ad, type: 3}
   big: {fileID: 8844069606557766121, guid: def9735a11144174b867d45558be4561, type: 3}
+  terrain: {fileID: 645144995}
 --- !u!1 &445771655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,7 +2083,7 @@ Transform:
   m_GameObject: {fileID: 760093726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.57, y: 41.99, z: 70.6}
+  m_LocalPosition: {x: 80.59, y: 41.99, z: 70.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2252,6 +2253,7 @@ MonoBehaviour:
   obj: {fileID: 7315476638179526761, guid: 0a21522839e604c4b83e81999849aa89, type: 3}
   medium: {fileID: 1159633025707473640, guid: 4f00d611294cf9443aee9cb15d0849a1, type: 3}
   big: {fileID: 1677370193955529626, guid: df236867be4d6254bb93a7536586209e, type: 3}
+  terrain: {fileID: 645144995}
 --- !u!1 &898535733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2875,8 +2877,8 @@ Transform:
   m_GameObject: {fileID: 1243968165}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 11.1, y: 0, z: 23.2}
+  m_LocalScale: {x: 1.2, y: 1, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 760093727}
@@ -8146,8 +8148,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: pauseMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 645144996}
+        m_TargetAssemblyTypeName: menuManager, Assembly-CSharp
         m_MethodName: showHidePauseMenu
         m_Mode: 1
         m_Arguments:
@@ -9063,7 +9065,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6.0999985}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 760093727}
@@ -14245,8 +14247,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: pauseMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 645144996}
+        m_TargetAssemblyTypeName: menuManager, Assembly-CSharp
         m_MethodName: enterMainMenu
         m_Mode: 1
         m_Arguments:
